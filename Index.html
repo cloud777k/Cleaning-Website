@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MARYLAND PROFESSIONAL</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: #ffffff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            height: 80px;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-1 {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+            height: 100%;
+        }
+        
+        .nav-1 img {
+            height: 70px;
+            width: 70px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+        
+        .nav-1 ul {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .nav-1 ul li {
+            margin-left: 30px;
+        }
+        
+        .nav-1 ul li a {
+            text-decoration: none;
+            color: #07dffc;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        
+        .nav-1 ul li a:hover {
+            color: #0f0d0d;
+            background-color: #f0f0f0;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background-color: #07dffc;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Home Section */
+        #home {
+            height: 100vh;
+            width: 100%;
+            background-image:url("cleanbackground.jpeg");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 5%;
+        }
+
+        .content-left {
+            max-width: 800px;
+            color: white;
+            padding: 20px;
+        }
+
+        .content-left h1 {
+            font-size: 3.5rem;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            font-weight: 700;
+        }
+
+        .content-left p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #07dffc;
+            color: #000;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .cta-button:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* About Section */
+        #about {
+            min-height: 100vh;
+            padding: 100px 5%;
+            background-image: url("mob.jpeg");
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about {
+            max-width: 1000px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 60px 40px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #333;
+            font-weight: 700;
+        }
+
+        .about hr {
+            width: 100px;
+            height: 4px;
+            background-color: #07dffc;
+            border: none;
+            margin: 10px auto 40px;
+            border-radius: 2px;
+        }
+
+        .about p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Services Section */
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card i {
+            font-size: 3rem;
+            color: #07dffc;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .service-card p {
+            color: #666;
+            text-align: center;
+        }
+
+        /* Contact Section */
+        #contact {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 100px 5%;
+        }
+
+        .contact {
+            max-width: 600px;
+            text-align: center;
+            color: white;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+        }
+
+        .contact-info {
+            margin-bottom: 30px;
+        }
+
+        .contact-info div {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: #07dffc;
+        }
+
+        .socials-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .social-link {
+            display: inline-block;
+            font-size: 2.5rem;
+            color: white;
+            transition: all 0.3s ease;
+            padding: 15px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .social-link:hover {
+            transform: translateY(-3px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .social-link.instagram:hover {
+            color: #e4405f;
+        }
+
+        .social-link.facebook:hover {
+            color: #1877f2;
+        }
+
+        .social-link.contact:hover {
+            color: green;
+        }
+
+        .social-link.gmail:hover {
+            color: red;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-1 ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            }
+
+            .nav-1 ul.active {
+                display: flex;
+            }
+
+            .nav-1 ul li {
+                margin: 0;
+                text-align: center;
+            }
+
+            .nav-1 ul li a {
+                display: block;
+                padding: 15px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-1 img {
+                height: 50px;
+            }
+
+            .content-left h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-left p {
+                font-size: 1.1rem;
+            }
+
+            .about {
+                padding: 40px 20px;
+            }
+
+            .about h1 {
+                font-size: 2rem;
+            }
+
+            .about p {
+                font-size: 1rem;
+            }
+
+            .contact h1 {
+                font-size: 2rem;
+            }
+
+            .social-link {
+                font-size: 2rem;
+            }
+
+            #home {
+                background-attachment: scroll;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .content-left h1 {
+                font-size: 2rem;
+            }
+
+            .content-left p {
+                font-size: 1rem;
+            }
+
+            .about h1 {
+                font-size: 1.8rem;
+            }
+
+            .contact h1 {
+                font-size: 1.8rem;
+            }
+
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-1">
+            <img src="maryland_logo-removebg-preview.png" alt="Maryland Logo">
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul id="navMenu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <section id="home">
+        <div class="content-left">
+            <h1>Professional Cleaning Services</h1>
+            <p>We provide customers with a variety of cleaning solutions for the best atmosphere and surroundings. Choose us for the best cleaning solutions.</p>
+            <a href="#contact" class="cta-button">Get Quote Now</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="about">
+            <h1>About Our Company</h1>
+            <hr>
+            <p>MARYLAND professional cleaning service is a full cleaning service provider focused on providing residential and commercial cleaning services in GHANA. We take pride in delivering top-quality residential and commercial cleaning services tailored to your needs.</p>
+            
+            <p>Our professional, reliable team uses eco-friendly products and proven methods to ensure your space shines every time. Whether it's a one-time deep clean or regular maintenance, we're committed to excellence and your complete satisfaction.</p>
+            
+            <p>Let us handle the dirt, so you can enjoy a fresher, healthier home or workspace.</p>
+            
+            <div class="services">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Residential Cleaning</h3>
+                    <p>Complete home cleaning services including deep cleaning, regular maintenance, and move-in/out cleaning.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial Cleaning</h3>
+                    <p>Professional office and commercial space cleaning services to maintain a productive work environment.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Eco-Friendly Solutions</h3>
+                    <p>We use environmentally safe cleaning products that are effective yet gentle on your family and pets.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h1>Get In Touch</h1>
+            <p>Ready to experience the difference? Contact us today for a free quote!</p>
+            
+            <div class="contact-info">
+                <div><i class="fas fa-phone"></i> Call us for immediate service</div>
+                <div><i class="fas fa-envelope"></i> Email us your requirements</div>
+                <div><i class="fas fa-map-marker-alt"></i> Serving all of Ghana</div>
+            </div>
+            
+            <div class="socials-container">
+                <a class="social-link instagram" href="//www.instagram.com/marylandcleaningservice/profilecard/?igsh=MTloZWQxOXJsZTNhNw==" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a class="social-link facebook" href="https://www.facebook.com/share/16eWv5ZfeW/" target="_blank">
+                    <i class="fab fa-facebook-f"></i>     
+                </a>
+                <a class="social-link contact" href="+233557100164" target="_blank">
+                    <i class="fab fa-phone"></i>
+                </a>
+                <a class="social-link gmail" href="marylandcleaning666@gmail.com" target="_blank">
+                    <i class="fab fa-google"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-1 ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('navMenu').classList.remove('active');
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 50) {
+                nav.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                nav.style.backdropFilter = 'blur(10px)';
+            } else {
+                nav.style.backgroundColor = '#ffffff';
+                nav.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe sections for animation
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
